@@ -133,8 +133,8 @@ searchInput.addEventListener("input", async () => {
 // Update current weather details
 let updateCurrentWeather = (data) => {
   city.textContent = data.name + ", " + data.sys.country;
-  day.textContent = dayOfWeak();
-  calendar.textContent = calenderInfo();
+  day.textContent = dayOfWeek();
+  calendar.textContent = calendarInfo();
   humidity.textContent = data.main.humidity;
   pressure.textContent = data.main.pressure;
   wind.textContent = windInfo(data);
@@ -154,7 +154,7 @@ let updateForecast = (forecast) => {
   forecast.forEach((day) => {
     let iconUrl =
       "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png";
-    let dayName = dayOfWeak(day.dt * 1000);
+    let dayName = dayOfWeek(day.dt * 1000);
     let temperature = Math.round(day.main.temp);
     let forecastItem = `
             <article class="weather__forecast__item">
@@ -168,12 +168,12 @@ let updateForecast = (forecast) => {
 };
 
 // Get day info - from Monday to Sunday
-let dayOfWeak = (dt = new Date().getTime()) => {
+let dayOfWeek = (dt = new Date().getTime()) => {
   return new Date(dt).toLocaleDateString("en-EN", { weekday: "long" });
 };
 
-// Get calender info in format dd/MM/YYYY
-let calenderInfo = () => {
+// Get calendar info in format dd/MM/YYYY
+let calendarInfo = () => {
   return new Date().toLocaleDateString("vi-VN", { calendar: "long" });
 };
 
