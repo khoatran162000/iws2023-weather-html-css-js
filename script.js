@@ -10,7 +10,7 @@ let temperature = document.querySelector(".temperature-value");
 let forecastBlock = document.querySelector(".weather__forecast");
 let suggestions = document.querySelector("#suggestions");
 
-let weatherAPIKey = "9068c76ecef3d3f7b0d9b8099e3f5b24"; // Change this to your own API key
+let weatherAPIKey = ""; // Change this to your own API key
 
 let weatherBaseEndpoint =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
